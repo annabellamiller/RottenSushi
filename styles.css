@@ -15,7 +15,6 @@ body {
       .navbar {
         background-color: #000;
         overflow: hidden;
-        direction:rtl;
       }
       
       .navbar a {
@@ -40,5 +39,9 @@ body {
         padding: 5px 10px;
       }
       .reviews {
+        padding: 5px 10px;
+      }
+      .addMovie {
+        display: inline-block;
         padding: 5px 10px;
       }
