@@ -3,17 +3,39 @@
 <head>
     <title>Movies</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(to right, #373b44, #4286f4); /* Ocean Blue Gradient */
-            font-family: Arial, sans-serif;
-        }
+       body {
+        display: flex;
+        flex-direction: row; /* Changed from "row" to "column" */
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0; /* Added to remove default margin */
+    }
+
+    .navbar {
+        padding: 10px;
+        background-color: #000;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .navbar a {
+        margin-right: 10px;
+        text-decoration: none;
+        float: right;
+        color: #fff;
+        text-align: center;
+        padding: 14px 16px;
+        font-size: 18px;
+    }
+    .navbar-left {
+        float: left;
+    }
+
+    .navbar a:first-child {
+        margin-right: auto;
+    }
 
         .movie {
             width: 200px;
@@ -32,7 +54,7 @@
 
         .movie a {
             text-decoration: none;
-            color: #fff;
+            color: #d11b85;
             text-transform: uppercase;
             font-weight: bold;
         }
@@ -62,11 +84,11 @@
            <a href='add-movie.html'>Add Movie</a>
            <a href='add-review.html'>Add Review</a>
     </div>
-
+    
     <!-- Start Movie Divs -->
     <div class="movie" id="movie1">
         <div class="poster"></div>
-        <a href="#">Movie Title 1</a>
+        <a href="movie-description.html">Movie Title 1</a>
         <button class="button">Add to Cart</button>
     </div>
     <div class="movie" id="movie2">

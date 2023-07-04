@@ -8,6 +8,7 @@ body {
 .navbar {
   background-color: #000;
   overflow: hidden;
+  width: 100%;
 }
 
 .navbar a {
@@ -124,4 +125,6 @@ body {
   font-weight: bold;
   color: black;
 }
+
+
 
