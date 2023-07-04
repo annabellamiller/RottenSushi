@@ -6,12 +6,12 @@
 	<body>
         <div class='navbar'>
          <div class='navbar-left'>
-                <a href='home.html'>Rotten Sushi</a>
+                <a href='home.php'>Rotten Sushi</a>
          </div>
-            <a href='login-page.html'>Logout</a>
-            <a href='cart.html'>Cart</a>
-            <a href='add-movie.html'>Add Movie</a>
-            <a href='add-review.html'>Add Review</a>
+            <a href='login-page.php'>Logout</a>
+            <a href='cart.php'>Cart</a>
+            <a href='add-movie.php'>Add Movie</a>
+            <a href='add-review.php'>Add Review</a>
         </div>
 
         <h1>Add A New Review</h1>

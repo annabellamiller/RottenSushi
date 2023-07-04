@@ -77,18 +77,18 @@
 <body>
     <div class='navbar'>
         <div class='navbar-left'>
-               <a href='home.html'>Rotten Sushi</a>
+               <a href='home.php'>Rotten Sushi</a>
         </div>
-           <a href='login-page.html'>Logout</a>
-           <a href='cart.html'>Cart</a>
-           <a href='add-movie.html'>Add Movie</a>
-           <a href='add-review.html'>Add Review</a>
+           <a href='login-page.php'>Logout</a>
+           <a href='cart.php'>Cart</a>
+           <a href='add-movie.php'>Add Movie</a>
+           <a href='add-review.php'>Add Review</a>
     </div>
     
     <!-- Start Movie Divs -->
     <div class="movie" id="movie1">
         <div class="poster"></div>
-        <a href="movie-description.html">Movie Title 1</a>
+        <a href="movie-description.php">Movie Title 1</a>
         <button class="button">Add to Cart</button>
     </div>
     <div class="movie" id="movie2">

@@ -6,17 +6,17 @@
 	<body>
         <div class="navbar">
             <div class="navbar-left">
-                <a href="home.html">Rotten Sushi</a>
+                <a href="home.php">Rotten Sushi</a>
             </div>
-            <a href="cart.html">Cart</a>
-            <a href="add-movie.html">Add Movie</a>
-            <a href="add-review.html">Add Review</a>
+            <a href="cart.php">Cart</a>
+            <a href="add-movie.php">Add Movie</a>
+            <a href="add-review.php">Add Review</a>
             
         </div>
         <h1>Movie Name Here</h1>
 
         <div class="movieDetails">
-            <img src="example.jpg" alt="Movie Image">       
+            <img src="/Images/example.jpg" alt="Movie Image">       
         </div>
         <div class="movieDetails">
             <p>
@@ -37,7 +37,7 @@
     
         </div>
         <div class="reviews">
-            <a href='cart.html'><button type="button">Purchase Movie!</button></a>
+            <a href='cart.php'><button type="button">Purchase Movie!</button></a>
 
     
         </div>

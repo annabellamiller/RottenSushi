@@ -4,7 +4,7 @@
 <style>
 body {
   font-family: Verdana, Arial, sans-serif;
-  background-image: url(LoginPageBackground.png);
+  background-image: url(/Images/LoginPageBackground.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -99,15 +99,15 @@ body {
 <body>
 <div class="navbar">
         <div class="navbar-left">
-            <a href="home.html">Rotten Sushi</a>
+            <a href="home.php">Rotten Sushi</a>
           </div>  
     </div>
 <div class="container">
   <h1 class="login-heading">Login</h1>
   <input class="username rectangle" type="text" placeholder="Username">
   <input class="password rectangle" type="password" placeholder="Password">
- <button class="login-button" type="button" onclick="window.location.href='home.html'">Login</button>
-    <p class="register-text">Don't have an account? <a href="CreateNewUser-Page.html" class="register-link"><span>Register</span></a></p>
+ <button class="login-button" type="button" onclick="window.location.href='home.php'">Login</button>
+    <p class="register-text">Don't have an account? <a href="CreateNewUser-Page.php" class="register-link"><span>Register</span></a></p>
 </div>
 </body>
 </html>
