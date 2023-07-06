@@ -54,9 +54,9 @@ CREATE TABLE `user` (
   `Password_`       VARCHAR(100) NOT NULL,
   `First_Name`      VARCHAR(100) NOT NULL,
   `Last_Name`       VARCHAR(100) NOT NULL,
-  `Credit_Card`     INT(16) NOT NULL,
-  `CVV`             INT(4) NOT NULL,
-  `Expiration_Date` DATE NOT NULL,
+  `Credit_Card`     INT(16),
+  `CVV`             INT(4) ,
+  `Expiration_Date` DATE ,
   `Admin`           TINYINT(1) NOT NULL DEFAULT 0,
   CONSTRAINT PRIMARY KEY (`User_ID`)
 );
