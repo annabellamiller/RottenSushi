@@ -93,15 +93,15 @@
 </div>
 <div class="container">
   <h1 class="login-heading">Create an Account</h1>
-  <form method='post' action="login-page.php">
+  <form method='post' action="new-user.php">
     <div class="input-group">
-      <input class="rectangle" type="text" name='forename' placeholder="First Name" required>
-      <input class="rectangle" type="text" name='surname' placeholder="Last Name" required>
+      <input class="rectangle" type="text" name='First_Name' placeholder="First Name" required>
+      <input class="rectangle" type="text" name='Last_Name' placeholder="Last Name" required>
     </div>
     <input class="rectangle" type="email" name='email' placeholder="Email">
-    <input class="rectangle" type="text" name='username' placeholder="Username" required>
-    <input class="rectangle" type="password" name='password' placeholder="Password" required>
-    <input class="rectangle" type="text" name ='cardnum' placeholder="CreditCard??">
+    <input class="rectangle" type="text" name='Username' placeholder="Username" required>
+    <input class="rectangle" type="password" name='Password_' placeholder="Password" required>
+    <input class="rectangle" type="text" name ='Credit_Card' placeholder="CreditCard??">
     <input class = "register-button" type="submit" value="Add User">
   </form> 
   <p class="register-text">Already have an account? <a href="login-page.php" class="register-link"><span>Login</span></a></p>
@@ -116,25 +116,29 @@ require_once 'login.php';
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
 
-if(isset($_POST['username'])){
+if(isset($_POST['Username'])){
+  $First_Name = $_POST['First_Name'];
+  $Last_Name = $_POST['Last_Name'];
+  $Username = $_POST['Username'];
+  $Password_ = $_POST['Password_'];
+  
+  //password_hash code here
+  $token = password_hash($Password_, PASSWORD_DEFAULT);
 
-	$forename = $_POST['forename'];
-	$surname = $_POST['surname'];
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	
-	//password_hash code here
-	$token = password_hash($password, PASSWORD_DEFAULT);
-
-	//code to add user here
-	$query = "insert into user(forename, surname, username, password_) values ('$forename', '$surname', '$username', '$token')";
-	$result = $conn->query($query);
-	if(!$result) die($conn->error);
-
-    header("Location:user-list.php");
+  //code to add user here
+  $query = "INSERT INTO user(Username, Password_, First_Name, Last_Name) VALUES ('$Username', '$token', '$First_Name', '$Last_Name')";
+  echo "Query: $query"; // Debug statement to check the query
+  
+  $result = $conn->query($query);
+  if(!$result) {
+    die("Error: " . $conn->error); // Display the error message
+  }
+  
+  // Redirect the user to the login page after successful registration
+  header("Location: login-page.php");
+  exit(); // Exit the script after redirecting
 }
 
 $conn->close();
-
 
 ?>
