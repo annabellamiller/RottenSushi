@@ -2,17 +2,17 @@
 	<head>
 		<title>Add Movie</title>
 		<link rel='stylesheet' href='styles.css'>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	</head>
 	<body>
-        <div class='navbar'>
-            <div class='navbar-left'>
-                   <a href='home.php'>Rotten Sushi</a>
-            </div>
-               <a href='login-page.php'>Logout</a>
-               <a href='cart.php'>Cart</a>
-               <a href='add-movie.php'>Add Movie</a>
-               <a href='add-review.php'>Add Review</a>
-        </div>
+        <!--Navigation bar-->
+        <div id="nav-placeholder"></div>
+        <script>
+            $(function(){
+            $("#nav-placeholder").load("nav.php");
+            });
+        </script>
+        <!--end of Navigation bar-->
 
         <h1>Add A New Movie</h1>
 

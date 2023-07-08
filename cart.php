@@ -18,27 +18,27 @@
             margin: 20px;
         }
         .navbar {
-  background-color: #000;
-  overflow: hidden;
-  width: 100%;
-}
+            background-color: #000;
+            overflow: hidden;
+            width: 100%;
+        }
 
-.navbar a {
-  float: right;
-  color: #fff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 18px;
-}
+        .navbar a {
+            float: right;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 18px;
+        }
 
-.navbar-left {
-  float: left;
-}
+        .navbar-left {
+            float: left;
+        }
 
-.navbar a:hover {
-  background-color: #555;
-}
+        .navbar a:hover {
+            background-color: #555;
+        }
 
         .cart-item {
             display: flex;
@@ -90,17 +90,17 @@
             background-color: #4CAF50; /* Green */
         }
     </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-    <div class='navbar'>
-        <div class='navbar-left'>
-               <a href='home.php'>Rotten Sushi</a>
-        </div>
-           <a href='login-page.php'>Logout</a>
-           <a href='cart.php'>Cart</a>
-           <a href='add-movie.php'>Add Movie</a>
-           <a href='add-review.php'>Add Review</a>
-    </div>
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("nav.php");
+        });
+    </script>
+    <!--end of Navigation bar-->
 
     <h1 class="section-title">Shopping Cart</h1>
 
