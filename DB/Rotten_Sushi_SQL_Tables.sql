@@ -50,16 +50,16 @@ CREATE TABLE `user` (
   `Admin`           TINYINT(1) NOT NULL DEFAULT 0,
   CONSTRAINT PRIMARY KEY (`User_ID`)
 );
--- INSERT INTO user(Username, Password_, First_Name, Last_Name, Credit_Card, CVV, Admin) VALUES ("bsmith", "mysecret", "bill", "smith", 1038473829, 1234, 1)
 
 -- REVIEW 
 DROP TABLE IF EXISTS review;
 CREATE TABLE review
-( User_ID		INT NOT NULL ,
-  Movie_ID		INT NOT NULL,
+( Review_ID     INT NOT NULL AUTO_INCREMENT,
+  User_ID		    INT NOT NULL ,
+  Movie_ID		  INT NOT NULL,
   Description_  TEXT(2000) NOT NULL,
   Rating        INT NOT NULL,
-  PRIMARY KEY (Movie_ID, User_ID),
+  PRIMARY KEY (Review_ID),
   FOREIGN KEY (User_ID) REFERENCES user(User_ID),
   FOREIGN KEY (Movie_ID) REFERENCES Movie(Movie_ID)
 );
