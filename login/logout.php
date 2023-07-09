@@ -10,8 +10,7 @@ function destroy_session_and_data(){
 	session_destroy();
 }
 
-echo "Please login <a href='login-page.php'> HERE </a>";
-
+header("Location: /rottensushi/login/login-page.php");
 
 
 

@@ -1,6 +1,5 @@
 <?php
 
-//require_once '../login.php';
 require_once($_SERVER['DOCUMENT_ROOT'] . '/rottensushi/login.php');
 
 

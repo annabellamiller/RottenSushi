@@ -2,7 +2,7 @@
  <div class='navbar-left'>
         <a href='/rottensushi/home.php'>Rotten Sushi</a>
  </div>
-    <a href='/rottensushi/login/login-page.php'>Logout</a>
+    <a href='/rottensushi/login/logout.php'>Logout</a>
     <a href='/rottensushi/cart.php'>Cart</a>
     <a href='/rottensushi/crud-Actor/add-actor.php'>Add Actor</a>
     <a href='/rottensushi/crud-Movie/add-movie.php'>Add Movie</a>

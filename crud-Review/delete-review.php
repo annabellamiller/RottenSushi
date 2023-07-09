@@ -12,10 +12,9 @@ if($conn->connect_error) die($conn->connect_error);
 
 if(isset($_POST['delete']))
 {
-	$User_ID = $_POST['User_ID'];
-    $Movie_ID = $_POST['Movie_ID'];
+    $Review_ID = $_POST['Review_ID'];
 
-	$query = "DELETE FROM review WHERE User_ID='$User_ID' && Movie_ID='$Movie_ID' ";
+	$query = "DELETE FROM review WHERE Review_ID='$Review_ID'";
 	
 	//Run the query
 	$result = $conn->query($query); 
