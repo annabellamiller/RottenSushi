@@ -4,6 +4,8 @@
  </div>
     <a href='login-page.php'>Logout</a>
     <a href='cart.php'>Cart</a>
-    <a href='add-movie.php'>Add Movie</a>
-    <a href='add-review.php'>Add Review</a>
+    <a href='/rottensushi/crud-Actor/add-actor.php'>Add Actor</a>
+    <a href='/rottensushi/crud-Movie/add-movie.php'>Add Movie</a>
+    <a href='/rottensushi/crud-Review/add-review.php'>Add Review</a>
+    <a href='/rottensushi/crud-Actor/view-actor.php'>View Actors</a>
 </div>

@@ -1,5 +1,5 @@
--- DROP DATABASE IF EXISTS Rotten_Sushi;  
--- CREATE DATABASE Rotten_Sushi;  
+DROP DATABASE IF EXISTS Rotten_Sushi;  
+CREATE DATABASE Rotten_Sushi;  
 
 USE Rotten_Sushi;
 
@@ -14,22 +14,12 @@ CREATE TABLE Actor
 );
 
 
-
--- CATEGORY
-DROP TABLE IF EXISTS Category;
-CREATE TABLE Category
-( Category_ID		INT NOT NULL AUTO_INCREMENT,
-  Cat_Description	VARCHAR(100) NOT NULL,	
-  PRIMARY KEY (Category_ID)
-);
-
-
 -- MOVIE
 DROP TABLE IF EXISTS Movie;
 CREATE TABLE Movie
 ( Movie_ID			INT NOT NULL AUTO_INCREMENT,
   Movie_Name		VARCHAR(200) NOT NULL,
-  Release_Year		YEAR NOT NULL,
+  Release_Date		Date NOT NULL,
   Director		    VARCHAR(100),
   Award			    TEXT(500),
   Details           TEXT(1000) NOT NULL,

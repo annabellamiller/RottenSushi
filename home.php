@@ -96,7 +96,7 @@
 
 <?php
 
-require_once  'login.php';
+require_once  './login.php';
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
@@ -111,25 +111,16 @@ if($result->num_rows > 0){
     // Output data of each row
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 
-echo <<<_END
-	<pre>
-	Author: <a href='updateRecord.php?isbn=$row[isbn]'>$row[author]</a>
-	Title: $row[title]
-	Category: $row[category]
-	Year: $row[year]
-	ISBN: $row[isbn]	
-	</pre>
-	
-	<form action='deleteRecord.php' method='post'>
-		<input type='hidden' name='delete' value='yes'>
-		<input type='hidden' name='isbn' value='$row[isbn]'>
-		<input type='submit' value='DELETE RECORD'>	
-	</form>
-	
-_END;
+        echo <<<_END
+            <div class="poster"></div>
+                <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID=$row[Movie_ID]">$row[Movie_Name]</a>
+                <button class="button">Add to Cart</button>
+            </div>
+        _END;
 
 	}
-} else {
+} 
+else {
     echo "No data found.";
 }
 
