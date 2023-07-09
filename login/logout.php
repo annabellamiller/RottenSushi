@@ -12,6 +12,4 @@ function destroy_session_and_data(){
 
 header("Location: /rottensushi/login/login-page.php");
 
-
-
 ?>
