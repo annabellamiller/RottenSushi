@@ -1,6 +1,6 @@
 <html>
 <head>
-<link rel='stylesheet' href='styles.css'>
+<link rel='stylesheet' href='../styles.css'>
 <style>
   body {
     font-family: Verdana, Arial, sans-serif;
@@ -99,7 +99,7 @@
 <body>
 <div class="navbar">
         <div class="navbar-left">
-            <a href="home.php">Rotten Sushi</a>
+            <a href="../home.php">Rotten Sushi</a>
           </div>  
     </div>
 <div class="container">
@@ -109,7 +109,7 @@
     <input class="password rectangle" type="password" name='Password_' placeholder="Password">
     <input class="login-button" type='submit' value='Login'>
   </form>
-  <p class="register-text">Don't have an account? <a href="new-user.php" class="register-link"><span>Register</span></a></p>
+  <p class="register-text">Don't have an account? <a href="../crud-user/new-user.php" class="register-link"><span>Register</span></a></p>
 </div>
 </body>
 </html>
@@ -117,7 +117,7 @@
 <?php
 
 
-require_once 'login.php';
+require_once '../login.php';
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
@@ -129,17 +129,19 @@ if (isset($_POST['Username']) && isset($_POST['Password_'])) {
 	$Password_ = mysql_entities_fix_string($conn, $_POST['Password_']);
 	
 	//get password from DB w/ SQL
-	$query = "SELECT Password_ FROM user WHERE Username = '$Username'";
+	$query = "SELECT * FROM user WHERE Username = '$Username'";
 	
 	$result = $conn->query($query); 
 	if(!$result) die($conn->error);
 	
 	$rows = $result->num_rows;
 	$passwordFromDB="";
+  $User_ID = "";
 	for($j=0; $j<$rows; $j++)
 	{
 		$row = $result->fetch_array(MYSQLI_ASSOC);
 		$passwordFromDB = $row['Password_'];
+    $User_ID = $row['User_ID'];
 	
 	}
 	
@@ -148,9 +150,9 @@ if (isset($_POST['Username']) && isset($_POST['Password_'])) {
 	{
 		echo "successful login<br>";
 		session_start();
-		$_SESSION['Username'] = $Username;
+		$_SESSION['User_ID'] = $User_ID;
 
-		header("Location: home.php");
+		header("Location: ../home.php");
 	}
 	else
 	{

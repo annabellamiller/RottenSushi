@@ -1,6 +1,6 @@
 <html>
 <head>
-<link rel='stylesheet' href='styles.css'>
+<link rel='stylesheet' href='../styles.css'>
 <style>
     body {
       font-family: Verdana, Arial, sans-serif;
@@ -104,14 +104,15 @@
     <input class="rectangle" type="text" name ='Credit_Card' placeholder="CreditCard??">
     <input class = "register-button" type="submit" value="Add User">
   </form> 
-  <p class="register-text">Already have an account? <a href="login-page.php" class="register-link"><span>Login</span></a></p>
+  <p class="register-text">Already have an account? <a href="../login/login-page.php" class="register-link"><span>Login</span></a></p>
 </div>
 </body>
 </html>
 
 <?php
 
-require_once 'login.php';
+require_once '../login.php';
+
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
@@ -135,7 +136,7 @@ if(isset($_POST['Username'])){
   }
   
   // Redirect the user to the login page after successful registration
-  header("Location: login-page.php");
+  header("Location: ../login/login-page.php");
   exit(); // Exit the script after redirecting
 }
 

@@ -9,7 +9,7 @@
         <div id="nav-placeholder"></div>
         <script>
             $(function(){
-            $("#nav-placeholder").load("nav.php");
+            $("#nav-placeholder").load("/rottensushi/nav.php");
             });
         </script>
         <!--end of Navigation bar-->
@@ -34,6 +34,7 @@
 
 <?php
 require_once  '../login.php';
+require_once '../login/checksession.php';
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
