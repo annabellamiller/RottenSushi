@@ -1,45 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel='stylesheet' href='styles.css'>
     <title>Shopping Cart</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(to right, #373b44, #4286f4); /* Ocean Blue Gradient */
-            font-family: Arial, sans-serif;
-        }
-
         .section-title {
             color: #fff;
             margin: 20px;
         }
-        .navbar {
-            background-color: #000;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .navbar a {
-            float: right;
-            color: #fff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .navbar-left {
-            float: left;
-        }
-
-        .navbar a:hover {
-            background-color: #555;
-        }
-
         .cart-item {
             display: flex;
             flex-direction: column;
@@ -50,42 +18,27 @@
             color: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
         }
-
         .poster {
             width: 100%;
             height: 300px;
             background: #000;
             margin-bottom: 10px;
         }
-
         .cart-item a {
             text-decoration: none;
             color: #fff;
             text-transform: uppercase;
             font-weight: bold;
         }
-
         .cart-item:hover {
             box-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
-
-        .button {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #f44336; /* Red */
-            color: #fff;
-            border: none;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
         .cart {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             margin-top: 40px;
         }
-
         .checkout-btn {
             background-color: #4CAF50; /* Green */
         }

@@ -1,42 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel='stylesheet' href='styles.css'>
     <title>Movies</title>
+    
     <style>
-        body {
-            display: flex;
-            flex-direction: column; 
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .navbar {
-            padding: 10px 0;
-            background-color: #000;
-            overflow: hidden;
-            width: 100%;
-            box-sizing: border-box;
-            float:right;
-            margin-right: 10px; */
-            text-decoration: none;
-            color: #fff;
-            text-align: center;
-            font-size: 18px;
-        }
-        .navbar a {
-            margin-right: 10px;
-            text-decoration: none;
-            float: right;
-            color: #fff;
-            text-align: center;
-            padding: 14px 16px;
-            font-size: 18px;
-        }
-        .navbar-left {
-            float: left;
-        }
         .movie {
             width: 200px;
             margin: 20px;
@@ -57,7 +25,7 @@
             font-weight: bold;
         }
         .movie:hover {
-            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
         }
         .button {
             margin-top: 10px;
@@ -80,15 +48,6 @@
         });
     </script>
     <!--end of Navigation bar-->
-    
-    <!-- Start Movie Divs -->
-    <div>
-        <div class="movie" id="movie1">
-            <div class="poster"></div>
-            <a href="movie-description.php">Movie Title 1</a>
-            <button class="button">Add to Cart</button>
-        </div>
-    </div>
     
     <!-- End Movie Divs -->
 </body>
@@ -115,9 +74,11 @@ if($result->num_rows > 0){
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 
         echo <<<_END
-            <div class="poster"></div>
+            <div class="movie">
+            <div class="poster">
                 <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID=$row[Movie_ID]">$row[Movie_Name]</a>
                 <button class="button">Add to Cart</button>
+                </div>
             </div>
         _END;
 
