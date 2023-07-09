@@ -33,6 +33,9 @@
 </html>
 
 <?php
+
+$page_role = 0; //Need to be logged in
+
 require_once  '../login.php';
 require_once '../login/checksession.php';
 

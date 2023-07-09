@@ -40,7 +40,7 @@ CREATE TABLE roles
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `User_ID`         INT NOT NULL AUTO_INCREMENT,
-  `Username`        VARCHAR(100) NOT NULL,
+  `Username`         VARCHAR(100) NOT NULL,
   `Password_`       VARCHAR(100) NOT NULL,
   `First_Name`      VARCHAR(100) NOT NULL,
   `Last_Name`       VARCHAR(100) NOT NULL,
@@ -50,6 +50,7 @@ CREATE TABLE `user` (
   `Admin`           TINYINT(1) NOT NULL DEFAULT 0,
   CONSTRAINT PRIMARY KEY (`User_ID`)
 );
+-- INSERT INTO user(Username, Password_, First_Name, Last_Name, Credit_Card, CVV, Admin) VALUES ("bsmith", "mysecret", "bill", "smith", 1038473829, 1234, 1)
 
 -- REVIEW 
 DROP TABLE IF EXISTS review;

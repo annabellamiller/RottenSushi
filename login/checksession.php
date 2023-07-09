@@ -1,16 +1,20 @@
 <?php
 
-require_once '../login.php';
+//require_once '../login.php';
+require_once($_SERVER['DOCUMENT_ROOT'] . '/rottensushi/login.php');
+
 
 session_start();
 
 if(!isset($_SESSION['User_ID'])){
-	header("Location: login-page.php");
+	header("Location: /rottensushi/login/login-page.php");
 	exit();
 }
 else {
 	$User_ID = $_SESSION['User_ID'];
-	$page_role = 0;
+
+	//echo "$User_ID"; //for debugging purposes
+	
 
 	//grab permissions from database
 	$conn = new mysqli($hn, $un, $pw, $db);

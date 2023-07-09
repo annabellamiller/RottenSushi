@@ -4,7 +4,7 @@
 <style>
   body {
     font-family: Verdana, Arial, sans-serif;
-    background-image: url(/Images/LoginPageBackground.png);
+    background-image: url(/rottensushi/Images/LoginPageBackground.png);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -144,7 +144,9 @@ if (isset($_POST['Username']) && isset($_POST['Password_'])) {
     $User_ID = $row['User_ID'];
 	
 	}
-	
+
+			echo "$Password_";
+
 	//Compare passwords
 	if(password_verify($Password_, $passwordFromDB))
 	{

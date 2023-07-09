@@ -33,7 +33,10 @@
 </html>
 
 <?php
+$page_role = 0; //Need to be logged in
+
 require_once  '../login.php';
+require_once  '../login/checksession.php';
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);

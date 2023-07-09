@@ -1,6 +1,6 @@
 <div class='navbar'>
  <div class='navbar-left'>
-        <a href='home.php'>Rotten Sushi</a>
+        <a href='/rottensushi/home.php'>Rotten Sushi</a>
  </div>
     <a href='/rottensushi/login/login-page.php'>Logout</a>
     <a href='/rottensushi/cart.php'>Cart</a>

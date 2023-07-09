@@ -1,7 +1,10 @@
 <?php
 
+$page_role = 1; //Need admin authority
+
 //import credentials for db
 require_once  '../login.php';
+require_once  '../login/checksession.php';
 
 //connect to db
 $conn = new mysqli($hn, $un, $pw, $db);

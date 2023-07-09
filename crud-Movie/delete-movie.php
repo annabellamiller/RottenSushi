@@ -1,7 +1,9 @@
 <?php
 
-//import credentials for db
+$page_role = 1; //admin
+
 require_once  '../login.php';
+require_once  '../login/checksession.php';
 
 //connect to db
 $conn = new mysqli($hn, $un, $pw, $db);
