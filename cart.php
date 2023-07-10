@@ -56,31 +56,62 @@
     <!--end of Navigation bar-->
 
     <h1 class="section-title">Shopping Cart</h1>
-   
-
-    <div class="cart">
-        <!-- Start Cart Items -->
-        <div class="cart-item">
-            <div class="poster"></div>
-            <a href="#">Movie Title 1</a>
-            <button class="button">Remove</button>
-        </div>
-        <!-- You can add more cart items as necessary -->
-    </div>
-
-    <button class="button checkout-btn" style="margin-top: 40px;">Checkout</button>
-    <button class="button" style="margin-top: 20px;">Clear Cart</button>
-
 </body>
 </html>
 
 <?php
-$page_role = 0; //Need to be logged in
+$page_role = 0; // Need to be logged in
 
-require_once  'login.php';
-require_once  'login/checksession.php';
+require_once 'login.php';
+require_once 'login/checksession.php';
 
 $User_ID = $_SESSION['User_ID'];
-echo "<H1>$User_ID</H1>";
+$cart = $_SESSION['cart'];
 
+echo "<h1>$User_ID's Cart</h1>";
+
+$conn = new mysqli($hn, $un, $pw, $db);
+if ($conn->connect_error) die($conn->connect_error);
+
+foreach ($cart as $movie) {
+    $query = "SELECT * FROM Movie WHERE Movie_ID='$movie'";
+
+    $result = $conn->query($query);
+    if (!$result) die($conn->error);
+
+    // Show results
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            echo <<<HTML
+            <div class="cart">
+                <div class="cart-item">
+                    <div class="poster"></div>
+                    <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID={$row['Movie_ID']}">{$row['Movie_Name']}</a>
+                    <a href="/rottensushi/crud-purchase/delete-purchase.php?Movie_ID={$row['Movie_ID']}"><button class="button">Remove</button></a>
+                </div>
+            </div>
+HTML;
+
+        }
+    } else {
+        echo "No data found.";
+    }
+    //<button class="button checkout-btn" style="margin-top: 40px;">Checkout</button>
+
+    echo "<form method="POST">
+                <button class="button checkout-btn" style="margin-top: 40px;">Checkout</button>
+            </form>}";
+
+
+    echo "<form method="POST">
+            <button class="button" style="margin-top: 20px;" name="clear_cart">Clear Cart</button>
+        </form>}";
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+       if (isset($_POST['clear_cart'])) {
+           // Clear the cart
+           unset($_SESSION['cart']);
+           echo "Cart cleared.";
+       }
+    }
+    
 ?>

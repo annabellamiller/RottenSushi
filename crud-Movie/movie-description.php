@@ -74,7 +74,7 @@
 
         echo "</p></div>";
         echo "<div class='reviews'>";
-        echo "<a href='../add-purchase.php?Movie_ID=$Movie_ID'><button type='button' class='button'>Purchase Movie!</button></a>";
+        echo "<a href='../crud-purchase/add-purchase.php?Movie_ID=$Movie_ID'><button type='button' class='button'>Add to Cart!</button></a>";
         echo "</div>";
     }
     ?>

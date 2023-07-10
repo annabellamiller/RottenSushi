@@ -1,5 +1,6 @@
 <div class='navbar'>
   <a href='/rottensushi/login/logout.php'>Logout</a>
+  <a href='/rottensushi/crud-Purchase/view-purchase.php'>My Movies</a>
   <a href='/rottensushi/cart.php'>Cart</a>
   <a href='/rottensushi/crud-Actor/add-actor.php'>Add Actor</a>
   <a href='/rottensushi/crud-Actor/view-actor.php'>View Actors</a>

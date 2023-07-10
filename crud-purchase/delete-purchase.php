@@ -1,30 +1,48 @@
-<?php
-$page_role = 1; //Need admin authority
+<!DOCTYPE html>
+	<head>
+		<title>Delete Purchase</title>
+	</head>
+</html>
 
-//import credentials for db
+<?php
+$page_role = 0; //Need to be logged in
+
 require_once  '../login.php';
 require_once  '../login/checksession.php';
 
-//connect to db
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
 
+$cart = $_SESSION['cart'];
 
-if(isset($_POST['delete']))
-{
-    $Review_ID = $_POST['Review_ID'];
+if(isset($_GET['Movie_ID'])) {
+    $Movie_ID = $_GET['Movie_ID'];
+    $User_ID = $_SESSION['User_ID'];
 
-	$query = "DELETE FROM review WHERE Review_ID='$Review_ID'";
-	
-	//Run the query
-	$result = $conn->query($query); 
-	if(!$result) die($conn->error);
-	
-	//Return to the view actors page
-	header("Location: ../home.php");
-	
+    // Find the key of the first occurrence of $Movie_ID in $cart array
+	$key = array_search($Movie_ID, $cart);
+
+	// If the key is found, unset the element from the array
+	if ($key !== false) {
+		unset($cart[$key]);
+	}
+
+
+    $_SESSION['cart'] = $cart; // Update the session variable with the modified cart array
+
+	//return to cart
+    header("Location: /rottensushi/cart.php");
+    exit();
 }
 
 $conn->close();
-
 ?>
+
+
+
+
+
+
+
+
+

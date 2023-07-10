@@ -153,6 +153,7 @@ if (isset($_POST['Username']) && isset($_POST['Password_'])) {
 		echo "successful login<br>";
 		session_start();
 		$_SESSION['User_ID'] = $User_ID;
+    $_SESSION['cart'] = array();
 
 		header("Location: ../home.php");
 	}
