@@ -44,9 +44,6 @@ CREATE TABLE `user` (
   `Password_`       VARCHAR(100) NOT NULL,
   `First_Name`      VARCHAR(100) NOT NULL,
   `Last_Name`       VARCHAR(100) NOT NULL,
-  `Credit_Card`     INT(16),
-  `CVV`             INT(4) ,
-  `Expiration_Date` DATE ,
   `Admin`           TINYINT(1) NOT NULL DEFAULT 0,
   CONSTRAINT PRIMARY KEY (`User_ID`)
 );
@@ -69,6 +66,9 @@ DROP TABLE IF EXISTS purchases;
 CREATE TABLE purchases
 ( Movie_ID		INT NOT NULL,
   User_ID		INT NOT NULL,
+  `Credit_Card`     INT(16),
+  `CVV`             INT(4) ,
+  `Expiration_Date` DATE ,
   PRIMARY KEY (Movie_ID, User_ID),
   FOREIGN KEY (User_ID) REFERENCES User(User_ID),
   FOREIGN KEY (Movie_ID) REFERENCES Movie(Movie_ID)

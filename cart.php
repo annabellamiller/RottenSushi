@@ -65,21 +65,6 @@
             <a href="#">Movie Title 1</a>
             <button class="button">Remove</button>
         </div>
-        <div class="cart-item">
-            <div class="poster"></div>
-            <a href="#">Movie Title 2</a>
-            <button class="button">Remove</button>
-        </div>
-        <div class="cart-item">
-            <div class="poster"></div>
-            <a href="#">Movie Title 3</a>
-            <button class="button">Remove</button>
-        </div>
-        <div class="cart-item">
-            <div class="poster"></div>
-            <a href="#">Movie Title 4</a>
-            <button class="button">Remove</button>
-        </div>
         <!-- You can add more cart items as necessary -->
     </div>
 
