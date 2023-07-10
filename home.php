@@ -3,7 +3,6 @@
 <head>
 <link rel='stylesheet' href='styles.css'>
     <title>Movies</title>
-    
     <style>
         .movie {
             width: 200px;
@@ -11,6 +10,7 @@
             text-align: center;
             color: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            display:flex;
         }
         .poster {
             width: 100%;
@@ -28,13 +28,7 @@
             box-shadow: 0 0 20px rgba(255,255,255,0.5);
         }
         .button {
-            margin-top: 10px;
-            padding: 10px;
             background-color: #4CAF50; /* Green */
-            color: #fff;
-            border: none;
-            text-transform: uppercase;
-            cursor: pointer;
         }
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>

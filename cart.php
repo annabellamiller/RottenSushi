@@ -56,6 +56,7 @@
     <!--end of Navigation bar-->
 
     <h1 class="section-title">Shopping Cart</h1>
+   
 
     <div class="cart">
         <!-- Start Cart Items -->
@@ -87,3 +88,14 @@
 
 </body>
 </html>
+
+<?php
+$page_role = 0; //Need to be logged in
+
+require_once  'login.php';
+require_once  'login/checksession.php';
+
+$User_ID = $_SESSION['User_ID'];
+echo "<H1>$User_ID</H1>";
+
+?>
