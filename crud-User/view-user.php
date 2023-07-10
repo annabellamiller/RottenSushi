@@ -43,9 +43,6 @@ if ($result->num_rows > 0) {
                 User: <a href='update-user.php?User_ID=$row[User_ID]'>$row[First_Name] $row[Last_Name]</a>
                 User ID: $row[User_ID]
                 Username: $row[Username]
-                Credit_Card: $row[Credit_Card]
-                CVV: $row[CVV]
-                Expiration_Date: $row[Expiration_Date]
                 Admin: $row[Admin]
                 
                 <form action='delete-user.php' method='post'>

@@ -64,12 +64,13 @@ CREATE TABLE review
 -- PURCHASES 
 DROP TABLE IF EXISTS purchases;
 CREATE TABLE purchases
-( Movie_ID		INT NOT NULL,
+( Purchase_ID INT NOT NULL AUTO_INCREMENT,
+  Movie_ID		INT NOT NULL,
   User_ID		INT NOT NULL,
   `Credit_Card`     INT(16),
   `CVV`             INT(4) ,
   `Expiration_Date` DATE ,
-  PRIMARY KEY (Movie_ID, User_ID),
+  PRIMARY KEY (Purchase_ID),
   FOREIGN KEY (User_ID) REFERENCES User(User_ID),
   FOREIGN KEY (Movie_ID) REFERENCES Movie(Movie_ID)
 );

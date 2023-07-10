@@ -54,64 +54,92 @@
         });
     </script>
     <!--end of Navigation bar-->
-
+    <!-- card info? -->
     <h1 class="section-title">Shopping Cart</h1>
 </body>
 </html>
 
 <?php
-$page_role = 0; // Need to be logged in
+    $page_role = 0; // Need to be logged in
 
-require_once 'login.php';
-require_once 'login/checksession.php';
+    require_once 'login.php';
+    require_once 'login/checksession.php';
 
-$User_ID = $_SESSION['User_ID'];
-$cart = $_SESSION['cart'];
+    $User_ID = $_SESSION['User_ID'];
+    $cart = $_SESSION['cart'];
 
-echo "<h1>$User_ID's Cart</h1>";
+    echo "<h1>$User_ID's Cart</h1>";
 
-$conn = new mysqli($hn, $un, $pw, $db);
-if ($conn->connect_error) die($conn->connect_error);
+    $conn = new mysqli($hn, $un, $pw, $db);
+    if ($conn->connect_error) die($conn->connect_error);
 
-foreach ($cart as $movie) {
-    $query = "SELECT * FROM Movie WHERE Movie_ID='$movie'";
 
-    $result = $conn->query($query);
-    if (!$result) die($conn->error);
 
-    // Show results
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            echo <<<HTML
-            <div class="cart">
-                <div class="cart-item">
-                    <div class="poster"></div>
-                    <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID={$row['Movie_ID']}">{$row['Movie_Name']}</a>
-                    <a href="/rottensushi/crud-purchase/delete-purchase.php?Movie_ID={$row['Movie_ID']}"><button class="button">Remove</button></a>
+    foreach ($cart as $movie) {
+        $query = "SELECT * FROM Movie WHERE Movie_ID='$movie'";
+
+        $result = $conn->query($query);
+        if (!$result) die($conn->error);
+
+        // Show results
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                echo <<<HTML
+                <div class="cart">
+                    <div class="cart-item">
+                        <div class="poster"></div>
+                        <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID={$row['Movie_ID']}">{$row['Movie_Name']}</a>
+                        <a href="/rottensushi/crud-purchase/delete-purchase.php?Movie_ID={$row['Movie_ID']}"><button class="button">Remove</button></a>
+                    </div>
                 </div>
-            </div>
-HTML;
+    HTML;
 
+            }
+        } else {
+            echo "No data found.";
         }
-    } else {
-        echo "No data found.";
     }
-    //<button class="button checkout-btn" style="margin-top: 40px;">Checkout</button>
 
-    echo "<form method="POST">
-                <button class="button checkout-btn" style="margin-top: 40px;">Checkout</button>
-            </form>}";
+    echo "
+    <form method='POST'>
+        <form action='cart.php' method='post'>
+            Credit Card: <input type='text' name='Credit_Card' required><br>
+            CVV: <input type='text' name='CVV' required><br>
+            Expiration Date: <input type='date' name='Expiration_Date' required><br>
+            <input type='hidden' name='checkout' value='yes'>
+        </form>
+        <input type='submit' class='checkout-btn' style='margin-top: 40px;' name='checkout' value='CHECKOUT'>	
+    </form>
 
+    <form method='POST' action='/rottensushi/cart.php'>
+        <button class='button' style='margin-top: 20px;' name='clear_cart'>Clear Cart</button>
+    </form>
+    ";
 
-    echo "<form method="POST">
-            <button class="button" style="margin-top: 20px;" name="clear_cart">Clear Cart</button>
-        </form>}";
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-       if (isset($_POST['clear_cart'])) {
-           // Clear the cart
-           unset($_SESSION['cart']);
-           echo "Cart cleared.";
-       }
+        if (isset($_POST['clear_cart'])) {
+            // Clear the cart
+            $_SESSION['cart'] = array();
+            echo "header(Location: /rottensushi/cart.php)";
+        }
+        if (isset($_POST['checkout'])) {
+            //add each movie to purchases list using card info
+            $User_ID = $_POST['User_ID'];
+            $Credit_Card = $_POST['Credit_Card'];
+            $CVV = $_POST['CVV'];
+            $Expiration_Date = $_POST['Expiration_Date'];
+
+            foreach ($cart as $movie) {
+                // Add purchase to database
+                $query = "INSERT INTO purchases (Movie_ID, User_ID, Credit_Card, CVV, Expiration_Date) VALUES ('$movie', '$User_ID', '$Credit_Card', '$CVV', '$Expiration_Date')";
+
+                $result = $conn->query($query);
+                if (!$result) die($conn->error);
+            }
+            
+            // Clear the cart
+            $_SESSION['cart'] = array();
+            echo "header(Location: /rottensushi/cart.php)";
+        }
     }
-    
 ?>

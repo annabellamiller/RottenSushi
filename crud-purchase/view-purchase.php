@@ -19,8 +19,6 @@
 </html>
 
 
-
-
 <?php
 
 $page_role = 0; //Need to be logged in

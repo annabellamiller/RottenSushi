@@ -98,10 +98,8 @@
       <input class="rectangle" type="text" name='First_Name' placeholder="First Name" required>
       <input class="rectangle" type="text" name='Last_Name' placeholder="Last Name" required>
     </div>
-    <input class="rectangle" type="email" name='email' placeholder="Email">
     <input class="rectangle" type="text" name='Username' placeholder="Username" required>
     <input class="rectangle" type="password" name='Password_' placeholder="Password" required>
-    <input class="rectangle" type="text" name ='Credit_Card' placeholder="CreditCard??">
     <input class = "register-button" type="submit" value="Add User">
   </form> 
   <p class="register-text">Already have an account? <a href="../login/login-page.php" class="register-link"><span>Login</span></a></p>
