@@ -71,7 +71,6 @@ if($result->num_rows > 0){
             <div class="movie">
             <div class="poster">
                 <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID=$row[Movie_ID]">$row[Movie_Name]</a>
-                <button class="button">Add to Cart</button>
                 </div>
             </div>
         _END;
