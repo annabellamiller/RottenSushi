@@ -5,7 +5,7 @@
 </html>
 
 <?php
-$page_role = 0; //Need to be logged in
+$page_role = 1; //Need to be admin
 
 require_once  '../login.php';
 require_once  '../login/checksession.php';

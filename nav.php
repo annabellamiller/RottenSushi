@@ -9,9 +9,7 @@
   <div class="navbar-left">
     <a href='/rottensushi/home.php'>Rotten Sushi</a>
     <a href='/rottensushi/crud-User/view-user.php'>
-      <div class="logo-image">
-        <img src='\RottenSushi\Images\logo.jpg' alt='Rotten Sushi Logo' style="display: flex; align-items: center; width: 30px; height: auto; margin-right: 10px;">
-      </div>
+      <img src='\RottenSushi\Images\logo.jpg' alt='Rotten Sushi Logo' style="display: flex; align-items: center; width: 50px; height: auto; margin-right: 0px;">
     </a>
   </div>
 </div>
