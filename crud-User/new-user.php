@@ -2,10 +2,13 @@
 <head>
 <link rel='stylesheet' href='../styles.css'>
 <style>
-    body {
-      font-family: Verdana, Arial, sans-serif;
-    }
-
+   body {
+    font-family: Verdana, Arial, sans-serif;
+    background-image: url(/rottensushi/Images/LoginPageBackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  }
     .navbar {
       background-color: black;
       height: 55px;
@@ -16,7 +19,7 @@
       top: 25px;
       right: 15px;
       color: white;
-      font-size: 40px;
+      font-size: 15px;
       font-weight: bold;
       text-decoration: underline;
       text-decoration-color: #C049F8;
@@ -36,15 +39,28 @@
 
     .login-heading {
       color: black;
-      font-size: 50px;
+      font-size: 40px;
       font-weight: bold;
       text-align: center;
     }
 
-    .firstname .lastname
-    .input-group .rectangle {
+    .firstname {
       width: 50%;
       margin-right: 10px;
+    }
+
+    .lastname {
+      width: 50%;
+      margin-right: 10px;
+    }
+
+    .rectangle,
+    .firstname,
+    .lastname,
+    input[type="text"],
+    input[type="password"] {
+      font-size: 15px;
+      font-weight: bold;
     }
 
     .rectangle {
@@ -56,6 +72,13 @@
       margin-bottom: 25px;
     }
 
+    .input-group {
+      display: flex;
+    }
+
+    .rectangle.full-width {
+      width: 100%;
+    }
 
     .register-button {
       background-color: #C049F8;
@@ -65,48 +88,36 @@
       line-height: 58px;
       width: 100%;
       padding: 0 20px;
-      border-radius: 24px;
+      border-radius: 35px;
       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
       border: none;
       cursor: pointer;
     }
 
-    .register-text {
-      text-align: center;
-      font-size: 25px;
-    }
-
-    .register-text span {
-      font-weight: bold;
-      color: black;
-    }
-
-    .register-link {
-      text-decoration: none;
-      color: black;
-    }
 </style>
 </head>
 <body>
 <div class="navbar">
-  <div class="login">Login</div>
-</div>
+        <div class="navbar-left">
+            <a href="../home.php">Rotten Sushi</a>
+          </div>  
+    </div>
+
 <div class="container">
-  <h1 class="login-heading">Create an Account</h1>
+  <h1 class="login-heading">Create Account</h1>
   <form method='post' action="new-user.php">
     <div class="input-group">
-      <input class="rectangle" type="text" name='First_Name' placeholder="First Name" required>
-      <input class="rectangle" type="text" name='Last_Name' placeholder="Last Name" required>
+      <input class="rectangle firstname" type="text" name='First_Name' placeholder="First Name" required>
+      <input class="rectangle lastname" type="text" name='Last_Name' placeholder="Last Name" required>
     </div>
-    <input class="rectangle" type="text" name='Username' placeholder="Username" required>
-    <input class="rectangle" type="password" name='Password_' placeholder="Password" required>
-    <input class = "register-button" type="submit" value="Add User">
+    <input class="rectangle full-width" type="text" name='Username' placeholder="Username" required>
+    <input class="rectangle full-width" type="password" name='Password_' placeholder="Password" required>
+    <input class="register-button" type="submit" value="Create">
   </form> 
   <p class="register-text">Already have an account? <a href="../login/login-page.php" class="register-link"><span>Login</span></a></p>
 </div>
 </body>
 </html>
-
 <?php
 
 require_once '../login.php';
