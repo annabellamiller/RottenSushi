@@ -24,7 +24,7 @@
         echo <<<HTML
             <h1>Movie Details</h1>
             <div class='movieDetails'>
-                <img src='/rottensushi/images/example.jpg' alt='Movie Image'>
+                <img src='../Images/{$row['Movie_ID']}.jpg' alt='Movie Image'>
             </div>
             <div class='movieDetails'>
                 <p>
@@ -74,7 +74,7 @@
 
         echo "</p></div>";
         echo "<div class='reviews'>";
-        echo "<a href='../crud-purchase/add-purchase.php?Movie_ID=$Movie_ID'><button type='button' class='button'>Add to Cart!</button></a>";
+        echo "<a href='../cart/add-cart.php?Movie_ID=$Movie_ID'><button type='button' class='button'>Add to Cart!</button></a>";
         echo "</div>";
     }
     ?>

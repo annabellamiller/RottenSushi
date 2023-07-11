@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel='stylesheet' href='styles.css'>
+<link rel='stylesheet' href='../styles.css'>
     <title>Shopping Cart</title>
     <style>
         .section-title {
@@ -50,7 +50,7 @@
     <div id="nav-placeholder"></div>
     <script>
         $(function(){
-        $("#nav-placeholder").load("nav.php");
+        $("#nav-placeholder").load("../nav.php");
         });
     </script>
     <!--end of Navigation bar-->
@@ -62,13 +62,11 @@
 <?php
     $page_role = 0; // Need to be logged in
 
-    require_once 'login.php';
-    require_once 'login/checksession.php';
+    require_once '../login.php';
+    require_once '../login/checksession.php';
 
     $User_ID = $_SESSION['User_ID'];
     $cart = $_SESSION['cart'];
-
-    echo "<h1>$User_ID's Cart</h1>";
 
     $conn = new mysqli($hn, $un, $pw, $db);
     if ($conn->connect_error) die($conn->connect_error);
@@ -89,7 +87,7 @@
                     <div class="cart-item">
                         <div class="poster"></div>
                         <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID={$row['Movie_ID']}">{$row['Movie_Name']}</a>
-                        <a href="/rottensushi/crud-purchase/delete-purchase.php?Movie_ID={$row['Movie_ID']}"><button class="button">Remove</button></a>
+                        <a href="/rottensushi/cart/delete-cart.php?Movie_ID={$row['Movie_ID']}"><button class="button">Remove</button></a>
                     </div>
                 </div>
     HTML;
@@ -101,30 +99,28 @@
     }
 
     echo "
-    <form method='POST'>
-        <form action='cart.php' method='post'>
-            Credit Card: <input type='text' name='Credit_Card' required><br>
-            CVV: <input type='text' name='CVV' required><br>
-            Expiration Date: <input type='date' name='Expiration_Date' required><br>
-            <input type='hidden' name='checkout' value='yes'>
-        </form>
-        <input type='submit' class='checkout-btn' style='margin-top: 40px;' name='checkout' value='CHECKOUT'>	
-    </form>
+    <form method='POST' action='cart.php'>
+    Credit Card: <input type='text' name='Credit_Card' required><br>
+    CVV: <input type='text' name='CVV' required><br>
+    Expiration Date: <input type='date' name='Expiration_Date' required><br>
+    <input type='hidden' name='checkout' value='yes'>
+    <input type='submit' class='checkout-btn'  style='margin-top: 40px;' name='checkout' value='CHECKOUT'>	
+</form>";
 
-    <form method='POST' action='/rottensushi/cart.php'>
+
+    echo"<form method='POST' action='/rottensushi/cart/cart.php'>
         <button class='button' style='margin-top: 20px;' name='clear_cart'>Clear Cart</button>
     </form>
     ";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['clear_cart'])) {
-            // Clear the cart
             $_SESSION['cart'] = array();
-            echo "header(Location: /rottensushi/cart.php)";
+            header("Location: /rottensushi/cart/cart.php");
         }
-        if (isset($_POST['checkout'])) {
+        else if (isset($_POST['checkout'])) {
             //add each movie to purchases list using card info
-            $User_ID = $_POST['User_ID'];
+            $User_ID = $_SESSION['User_ID'];
             $Credit_Card = $_POST['Credit_Card'];
             $CVV = $_POST['CVV'];
             $Expiration_Date = $_POST['Expiration_Date'];
@@ -139,7 +135,7 @@
             
             // Clear the cart
             $_SESSION['cart'] = array();
-            echo "header(Location: /rottensushi/cart.php)";
+            header("Location: /rottensushi/cart/cart.php");
         }
     }
 ?>

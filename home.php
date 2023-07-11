@@ -67,13 +67,14 @@ if($result->num_rows > 0){
     // Output data of each row
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 
-        echo <<<_END
-            <div class="movie">
-            <div class="poster">
-                <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID=$row[Movie_ID]">$row[Movie_Name]</a>
-                </div>
-            </div>
-        _END;
+        echo <<< _END
+    <div class="movie">
+        <div class="poster">
+            <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID={$row['Movie_ID']}">{$row['Movie_Name']}</a>
+            <img src="Images/{$row['Movie_ID']}.jpg" alt="insert {$row['Movie_Name']} image here">
+        </div>
+    </div>
+_END;
 
 	}
 } 

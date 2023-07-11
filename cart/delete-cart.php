@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 	<head>
-		<title>Add Purchase</title>
+		<title>Delete Purchase</title>
 	</head>
 </html>
 
@@ -15,21 +15,23 @@ if($conn->connect_error) die($conn->connect_error);
 
 $cart = $_SESSION['cart'];
 
-
 if(isset($_GET['Movie_ID'])) {
     $Movie_ID = $_GET['Movie_ID'];
     $User_ID = $_SESSION['User_ID'];
 
-    $cart[] = $Movie_ID; // Add Movie_ID to the cart array using [] notation
+    // Find the key of the first occurrence of $Movie_ID in $cart array
+	$key = array_search($Movie_ID, $cart);
 
-    // Perform any other operations you need to do with the cart or Movie_ID
+	// If the key is found, unset the element from the array
+	if ($key !== false) {
+		unset($cart[$key]);
+	}
+
 
     $_SESSION['cart'] = $cart; // Update the session variable with the modified cart array
-    // echo "$cart[0]";
-    foreach ($cart as $item) {
-        echo $item . "<br>";
-    }
-    header("Location: /rottensushi/crud-Movie/movie-description.php?Movie_ID=$Movie_ID");
+
+	//return to cart
+    header("Location: /rottensushi/cart/cart.php");
     exit();
 }
 

@@ -13,25 +13,19 @@ require_once  '../login/checksession.php';
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
 
-$cart = $_SESSION['cart'];
 
-if(isset($_GET['Movie_ID'])) {
-    $Movie_ID = $_GET['Movie_ID'];
-    $User_ID = $_SESSION['User_ID'];
+if(isset($_GET['Purchase_ID'])) {
+    $Purchase_ID = $_GET['Purchase_ID'];
 
-    // Find the key of the first occurrence of $Movie_ID in $cart array
-	$key = array_search($Movie_ID, $cart);
-
-	// If the key is found, unset the element from the array
-	if ($key !== false) {
-		unset($cart[$key]);
-	}
+	$query = "DELETE FROM purchases WHERE Purchase_ID='$Purchase_ID' ";
+	
+	//Run the query
+	$result = $conn->query($query); 
+	if(!$result) die($conn->error);
 
 
-    $_SESSION['cart'] = $cart; // Update the session variable with the modified cart array
-
-	//return to cart
-    header("Location: /rottensushi/cart.php");
+	//return to view purchases
+    header("Location: /rottensushi/crud-purchase/view-purchase.php");
     exit();
 }
 
