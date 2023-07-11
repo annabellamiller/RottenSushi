@@ -1,12 +1,12 @@
 body {
   font-family: Verdana, Arial, sans-serif;
-  background-color: lightblue;
+  background-color: rgb(238, 241, 243);
   margin: 0;
   padding: 0;
 }
 
 .navbar {
-  position: fixed;
+  /* position: fixed; */
   background-color: #000;
   overflow: hidden;
   width: 100%;
@@ -30,7 +30,6 @@ body {
   float: left;
   padding:0px 0px
 }
-
 
 .navbar a:hover {
   background-color: #555;

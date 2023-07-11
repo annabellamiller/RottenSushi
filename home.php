@@ -5,7 +5,6 @@
     <title>Movies</title>
     <style>
         body {
-            background-color: #fff; /* Set the background color to white */
             font-family: Verdana, Arial, sans-serif;
         }
         
