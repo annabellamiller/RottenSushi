@@ -58,6 +58,8 @@
 
         echo "<div class='reviews'><p><h3>Reviews:</h3>";
 
+
+
         $query = "SELECT * FROM review r
                   INNER JOIN user u ON r.User_ID = u.User_ID
                   WHERE Movie_ID=$Movie_ID";
