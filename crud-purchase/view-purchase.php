@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
     do {
         echo <<<HTML
             <div class="myMovies">
-                <div class="poster"></div>
+                <!-- <div class="poster"></div> -->
                 <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID={$row['Movie_ID']}">{$row['Movie_Name']}</a><br>
                 <a href="/rottensushi/crud-purchase/update-purchase.php?Purchase_ID={$row['Purchase_ID']}">Update Purchase</a>:<br>
                 Card Used: {$row['Credit_Card']}<br>

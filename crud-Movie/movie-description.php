@@ -3,6 +3,14 @@
 <head>
     <title>Movie Page</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .movieDetails img{
+            width: 200px; /* Set the fixed width */
+            height: 300px; /* Set the fixed height */
+            border-radius: 20px;
+            object-fit: cover; /* Adjust the image fit */
+        }
+    </style>
 </head>
 <body>
     <?php
