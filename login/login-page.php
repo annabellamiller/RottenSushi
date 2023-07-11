@@ -97,10 +97,11 @@
 </style>
 </head>
 <body>
-<div class="navbar">
-        <div class="navbar-left">
-            <a href="../home.php">Rotten Sushi</a>
-          </div>  
+ <div class='navbar'>
+      <div class="navbar-left">
+        <a href='/rottensushi/home.php'>Rotten Sushi</a>
+        <img src='\RottenSushi\Images\logo.jpg' alt='Rotten Sushi Logo' style="display: flex; align-items: center; width: 50px; height: auto; margin-right: 10px;">
+      </div>
     </div>
 <div class="container">
   <h1 class="login-heading">Login</h1>
