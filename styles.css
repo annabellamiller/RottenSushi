@@ -6,6 +6,7 @@ body {
 }
 
 .navbar {
+  position: fixed;
   background-color: #000;
   overflow: hidden;
   width: 100%;
@@ -15,13 +16,19 @@ body {
   float: right;
   color: #fff;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
   font-size: 18px;
+  padding: 10px
+}
+
+.navbar-right {
+  padding: 10px 12px; /* Adjust the padding values as needed */
+  display: inline;
 }
 
 .navbar-left {
   float: left;
+  padding:0px 0px
 }
 
 
