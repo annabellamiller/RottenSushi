@@ -41,6 +41,7 @@ require_once  '../login/checksession.php';
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
 
+
 //check if name exists
 if(isset($_POST['First_Name'])) 
 {
@@ -62,19 +63,13 @@ if(isset($_POST['First_Name']))
 }
 
 echo "<br><br>";
-
 $query = "SELECT CONCAT(a.First_Name, ' ', a.Last_Name) AS Actor_Name
             FROM actor a
             INNER JOIN roles r ON r.Actor_ID = a.Actor_ID
             GROUP BY a.Actor_ID
-            HAVING COUNT(r.Actor_ID) = (
-                SELECT MAX(role_count)
-                FROM (
-                    SELECT COUNT(r2.Actor_ID) AS role_count
-                    FROM roles r2
-                    GROUP BY r2.Actor_ID
-                ) AS actor_roles
-            );";
+            ORDER BY COUNT(r.Actor_ID) DESC
+            LIMIT 1;
+            ";
 
 $result = $conn->query($query);
 if (!$result) die($conn->error);
@@ -82,6 +77,7 @@ if (!$result) die($conn->error);
 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
     echo "Current Most Popular Actor: {$row['Actor_Name']} <br>";
 }
+
 
 $conn->close();
 
