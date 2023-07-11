@@ -24,7 +24,7 @@
         echo <<<HTML
             <h1>Movie Details</h1>
             <div class='movieDetails'>
-                <img src='/rottensushi/images/example.jpg' alt='Movie Image'>
+                <img src='../Images/{$row['Movie_ID']}.jpg' alt='Movie Image'>
             </div>
             <div class='movieDetails'>
                 <p>
