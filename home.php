@@ -33,6 +33,20 @@
             object-fit: cover; /* Adjust the image fit */
             margin-top: 20px; /* Add margin to the top of the image */
         }
+        .movie a {
+            position: absolute;
+            bottom: 10px; /* Add margin of 5px from the bottom */
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7); /* Add background color to make the text more readable */
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #C049F8; /* Set the color of the movie title */
+            box-sizing: border-box;
+            text-decoration: none; /* Remove underline */
+        }
         .movie-row {
             display: flex;
             justify-content: space-between;

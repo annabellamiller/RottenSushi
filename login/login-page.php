@@ -46,7 +46,7 @@
   }
 
   .rectangle {
-    border: 3px solid #e45252;
+    border: 3px solid #C049F8;
     height: 58px;
     width: 100%;
     text-align: left;
@@ -65,7 +65,7 @@
   }
 
   .login-button {
-    background-color: #e45252;
+    background-color: #C049F8;
     color: white;
     font-size: 25px;
     font-weight: bold;

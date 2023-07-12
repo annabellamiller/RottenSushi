@@ -4,7 +4,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/rottensushi/login.php');
 
 
 session_start();
-$checkAdmin = 0;
 
 if(!isset($_SESSION['User_ID'])){
 	header("Location: /rottensushi/login/login-page.php");
@@ -26,7 +25,6 @@ else {
 
 	//check authorization
 	$Admin = $row['Admin'];
-	$checkAdmin = $Admin;
 	
 	if(!$Admin && $page_role==1){
 		header("Location: /rottensushi/login/unauthorized.php");

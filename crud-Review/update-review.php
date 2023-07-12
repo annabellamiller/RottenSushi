@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>View Review</title>
+    <title>Update Review</title>
     <link rel='stylesheet' href='../styles.css'>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
@@ -15,15 +15,14 @@
     </script>
     <!--end of Navigation bar-->
 
-    <h1>View and Update Review</h1>
+    <h1>Update Review</h1>
 </body>
 </html>
 
 <?php
-    $page_role = 0; // Need to be admin
+    $page_role = 1; // Need to be admin
     require_once  '../login.php';
     require_once  '../login/checksession.php';
-
 
     $conn = new mysqli($hn, $un, $pw, $db);
     if ($conn->connect_error) die($conn->connect_error);
@@ -79,7 +78,7 @@
 
     }
 
-    if (isset($_POST['update']) && $checkAdmin) {
+    if (isset($_POST['update'])) {
         
         $Description_ = $_POST['Description_'];
         $Rating = $_POST['Rating'];
@@ -93,9 +92,6 @@
         
         header("Location: ../crud-movie/movie-description.php?Movie_ID=$Movie_ID");
         exit();
-    }
-    else if (isset($_POST['update'])){
-        header("Location: /rottensushi/login/unauthorized.php");
     }
 
     $conn->close();
