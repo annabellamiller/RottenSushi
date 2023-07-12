@@ -5,7 +5,7 @@
     <title>Shopping Cart</title>
     <style>
         .section-title {
-            color: #fff;
+            /* color: #fff; */
             margin: 20px;
         }
         .cart-item {
@@ -26,7 +26,7 @@
         }
         .cart-item a {
             text-decoration: none;
-            color: #fff;
+            color: red;
             text-transform: uppercase;
             font-weight: bold;
         }
@@ -85,7 +85,9 @@
                 echo <<<HTML
                 <div class="cart">
                     <div class="cart-item">
-                        <div class="poster"></div>
+                        <div class="poster">
+                            <img src="../Images/{$row['Movie_ID']}.jpg" alt="insert {$row['Movie_Name']} image here">
+                        </div>
                         <a href="/rottensushi/crud-Movie/movie-description.php?Movie_ID={$row['Movie_ID']}">{$row['Movie_Name']}</a>
                         <a href="/rottensushi/cart/delete-cart.php?Movie_ID={$row['Movie_ID']}"><button class="button">Remove</button></a>
                     </div>

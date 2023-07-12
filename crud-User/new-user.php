@@ -22,7 +22,7 @@
       font-size: 15px;
       font-weight: bold;
       text-decoration: underline;
-      text-decoration-color: #FF1A1A;
+      text-decoration-color: #e45252;
       text-decoration-thickness: 3px;
     }
 
@@ -64,7 +64,7 @@
     }
 
     .rectangle {
-      border: 3px solid #000000;
+      border: 3px solid #e45252;
       height: 58px;
       text-align: left;
       border-radius: 35px;
@@ -81,7 +81,7 @@
     }
 
     .register-button {
-      background-color: #FF1A1A;
+      background-color: #e45252;
       color: white;
       font-size: 25px;
       font-weight: bold;

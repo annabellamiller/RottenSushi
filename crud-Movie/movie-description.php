@@ -4,18 +4,11 @@
     <title>Movie Page</title>
     <link rel="stylesheet" href="../styles.css">
     <style>
-        .button {
-            padding: 10px 20px;
-            background-color: #000000; /* Black */
-            color: #fff;
-            font-weight: bold;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .button.red {
-            background-color: #FF1A1A; /* Red */
+        .movieDetails img{
+            width: 200px; /* Set the fixed width */
+            height: 300px; /* Set the fixed height */
+            border-radius: 20px;
+            object-fit: cover; /* Adjust the image fit */
         }
     </style>
 </head>
@@ -68,10 +61,12 @@
         echo "<form action='delete-movie.php' method='post'>";
         echo "<input type='hidden' name='delete' value='yes'>";
         echo "<input type='hidden' name='Movie_ID' value='{$row['Movie_ID']}'>";
-        echo "<input type='submit' class='button red' value='DELETE MOVIE'>";
+        echo "<input type='submit' class='button' value='DELETE MOVIE'>";
         echo "</form>";
 
         echo "<div class='reviews'><p><h3>Reviews:</h3>";
+
+
 
         $query = "SELECT * FROM review r
                   INNER JOIN user u ON r.User_ID = u.User_ID
